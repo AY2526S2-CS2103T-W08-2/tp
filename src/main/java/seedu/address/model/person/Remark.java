@@ -9,6 +9,9 @@ import static java.util.Objects.requireNonNull;
 public class Remark {
     public final String value;
 
+    /**
+     * Remark should not be blank
+     */
     public Remark(String remark) {
         requireNonNull(remark);
         value = remark;
