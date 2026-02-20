@@ -10,7 +10,7 @@ public class Remark {
     public final String value;
 
     /**
-     * Remark should not be blank
+     * Creates a Remark. Remark may be blank but must not be null.
      */
     public Remark(String remark) {
         requireNonNull(remark);
