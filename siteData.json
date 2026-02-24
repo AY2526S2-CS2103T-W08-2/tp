@@ -10,8 +10,7 @@
         "jolene": "Jolene",
         "aw-ming-xuan": "Aw Ming Xuan",
         "le-hua": "Le Hua",
-        "jean-doe": "Jean Doe",
-        "james-doe": "James Doe"
+        "shermaine": "Shermaine"
       },
       "headingKeywords": {}
     },
@@ -136,8 +135,32 @@
       "headingKeywords": {}
     },
     {
+      "src": "team/icyyolo.md",
+      "title": "Ming Xuan's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "team/jolenechong.md",
-      "title": "John Doe's Project Portfolio Page",
+      "title": "Jolene's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/l3hu4l1.md",
+      "title": "Le Hua's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/shermaine.md",
+      "title": "Shermaine's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
