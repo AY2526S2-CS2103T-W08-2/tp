@@ -64,11 +64,10 @@ public class VersionedAddressBookTest {
         versionedAddressBook.undo(state2);
 
         // redo
-        // TODO: implement when redo is implemented
-        // versionedAddressBook.redo(state2);
+        versionedAddressBook.redo(state2);
 
         // state2 should match state2 again
-        // assertEquals(state2, state2); // just checking redo doesn't throw
+        assertEquals(state2, state2); // just checking redo doesn't throw
     }
 
     @Test
