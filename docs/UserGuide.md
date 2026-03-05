@@ -152,6 +152,12 @@ Clears all entries from the address book.
 
 Format: `clear`
 
+### Undoing the previous command : `undo`
+
+Undoes the previous command that changed the data.
+
+Format: `undo`
+
 ### Exiting the program : `exit`
 
 Exits the program.
