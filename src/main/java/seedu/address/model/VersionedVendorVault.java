@@ -6,11 +6,12 @@ import java.util.List;
 import seedu.address.logic.commands.UndoCommand;
 
 /**
- * Represents a VendorVault that keeps track AddressBook version history.
+ * Represents the version history of whole of VendorVault.
  */
-public class VersionedAddressBook {
+public class VersionedVendorVault {
 
-    private final List<AddressBook> vaultStateList;
+    private final List<AddressBook> addressBookStateList;
+    // private final List<Inventory> inventoryStateList;
     private int currentStatePointer;
 
     /**
@@ -18,9 +19,9 @@ public class VersionedAddressBook {
      *
      * @param initial Initial state of the VendorVault.
      */
-    public VersionedAddressBook(ReadOnlyAddressBook initial) {
-        this.vaultStateList = new ArrayList<>();
-        this.vaultStateList.add(new AddressBook(initial));
+    public VersionedVendorVault(ReadOnlyAddressBook initial) {
+        this.addressBookStateList = new ArrayList<>();
+        this.addressBookStateList.add(new AddressBook(initial));
         this.currentStatePointer = 0;
     }
 
@@ -28,9 +29,12 @@ public class VersionedAddressBook {
      * Saves a copy of the current VendorVault state to the history.
      */
     public void commit(AddressBook currentState) {
-        vaultStateList.subList(currentStatePointer + 1, vaultStateList.size()).clear();
+        // add parameter Inventory currentStateInventory when Inventory is implemented
+        // state will be stored as a whole VendorVault state, so that undo and redo can be done in one step
+        // which is what user expects when they undo or redo a command
+        addressBookStateList.subList(currentStatePointer + 1, addressBookStateList.size()).clear();
 
-        vaultStateList.add(new AddressBook(currentState));
+        addressBookStateList.add(new AddressBook(currentState));
 
         currentStatePointer++;
     }
@@ -43,7 +47,7 @@ public class VersionedAddressBook {
             throw new IllegalStateException(UndoCommand.MESSAGE_FAILURE);
         }
         currentStatePointer--;
-        currentState.resetData(vaultStateList.get(currentStatePointer));
+        currentState.resetData(addressBookStateList.get(currentStatePointer));
     }
 
     /**
@@ -55,7 +59,7 @@ public class VersionedAddressBook {
             throw new IllegalStateException(UndoCommand.MESSAGE_FAILURE);
         }
         currentStatePointer++;
-        currentState.resetData(vaultStateList.get(currentStatePointer));
+        currentState.resetData(addressBookStateList.get(currentStatePointer));
     }
 
     public boolean canUndo() {
@@ -63,6 +67,6 @@ public class VersionedAddressBook {
     }
 
     public boolean canRedo() {
-        return currentStatePointer < vaultStateList.size() - 1;
+        return currentStatePointer < addressBookStateList.size() - 1;
     }
 }

@@ -85,14 +85,15 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
 
+    //=========== AddressBookVersioning ========================================================================
     /**
-     * Commits the current state of the address book to the vendor vault. This should be called after any operation
-     * that modifies the address book, such as adding, deleting, or editing a person.
+     * Commits the current state of the address book saved vendors. This should be called after any operation
+     * that modifies the address book, such as adding, deleting, or editing a person (same as vendor).
      */
     void commitAddressBook();
 
     /**
-     * Undoes the last committed state in the vendor vault, reverting the address book to the previous state.
+     * Undoes the last committed state in , reverting the address book to the previous state.
      */
     void undoAddressBook();
 

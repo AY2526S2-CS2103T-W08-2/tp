@@ -22,7 +22,7 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
-    private final VersionedAddressBook versionedVendorVault;
+    private final VersionedVendorVault versionedVendorVault;
 
 
     /**
@@ -36,7 +36,7 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
-        versionedVendorVault = new VersionedAddressBook(addressBook);
+        versionedVendorVault = new VersionedVendorVault(addressBook);
     }
 
     public ModelManager() {
