@@ -90,18 +90,18 @@ public interface Model {
      * Commits the current state of the address book saved vendors. This should be called after any operation
      * that modifies the address book, such as adding, deleting, or editing a person (same as vendor).
      */
-    void commitAddressBook();
+    void commitVendorVault();
 
     /**
      * Undoes the last committed state in , reverting the address book to the previous state.
      */
-    void undoAddressBook();
+    void undoVendorVault();
 
     /**
      * Returns true if there are states in the vendor vault that can be undone.
      *
      * @return true if there are states in the vendor vault that can be undone, false otherwise.
      */
-    boolean canUndoAddressBook();
+    boolean canUndoVendorVault();
 
 }

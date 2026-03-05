@@ -133,17 +133,17 @@ public class ModelManager implements Model {
 
     //=========== VendorVaultVersionControl  ===================================================================
     @Override
-    public void commitAddressBook() {
+    public void commitVendorVault() {
         versionedVendorVault.commit(addressBook);
     }
 
     @Override
-    public void undoAddressBook() {
+    public void undoVendorVault() {
         versionedVendorVault.undo(addressBook);
     }
 
     @Override
-    public boolean canUndoAddressBook() {
+    public boolean canUndoVendorVault() {
         return versionedVendorVault.canUndo();
     }
 

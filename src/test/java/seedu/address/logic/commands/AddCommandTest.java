@@ -159,17 +159,17 @@ public class AddCommandTest {
         }
 
         @Override
-        public void commitAddressBook() {
+        public void commitVendorVault() {
             // stub method
         }
 
         @Override
-        public void undoAddressBook() {
+        public void undoVendorVault() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public boolean canUndoAddressBook() {
+        public boolean canUndoVendorVault() {
             throw new AssertionError("This method should not be called.");
         }
 

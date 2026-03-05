@@ -13,10 +13,10 @@ public class UndoCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        if (!model.canUndoAddressBook()) {
+        if (!model.canUndoVendorVault()) {
             throw new CommandException(MESSAGE_FAILURE);
         }
-        model.undoAddressBook();
+        model.undoVendorVault();
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }
