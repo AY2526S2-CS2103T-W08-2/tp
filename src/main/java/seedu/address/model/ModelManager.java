@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.logic.commands.Command;
 import seedu.address.model.person.Person;
 
 /**
@@ -22,6 +23,7 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+    private final CommandHistory history = new CommandHistory();
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -126,6 +128,21 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+    }
+
+    @Override
+    public void pushExecutedCommand(Command cmd) {
+        history.push(cmd);
+    }
+
+    @Override
+    public Command popExecutedCommand() {
+        return history.pop();
+    }
+
+    @Override
+    public boolean canUndo() {
+        return !history.isEmpty();
     }
 
     @Override
