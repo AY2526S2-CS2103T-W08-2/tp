@@ -69,14 +69,14 @@ public class ParserUtilTest {
     @Test
     public void parseName_validValueWithoutWhitespace_returnsName() throws Exception {
         Name expectedName = new Name(VALID_NAME);
-        assertEquals(expectedName, ParserUtil.parseName(VALID_NAME));
+        assertEquals(expectedName, ParserUtil.parseName(VALID_NAME).getValue());
     }
 
     @Test
     public void parseName_validValueWithWhitespace_returnsTrimmedName() throws Exception {
         String nameWithWhitespace = WHITESPACE + VALID_NAME + WHITESPACE;
         Name expectedName = new Name(VALID_NAME);
-        assertEquals(expectedName, ParserUtil.parseName(nameWithWhitespace));
+        assertEquals(expectedName, ParserUtil.parseName(nameWithWhitespace).getValue());
     }
 
     @Test
@@ -92,14 +92,14 @@ public class ParserUtilTest {
     @Test
     public void parsePhone_validValueWithoutWhitespace_returnsPhone() throws Exception {
         Phone expectedPhone = new Phone(VALID_PHONE);
-        assertEquals(expectedPhone, ParserUtil.parsePhone(VALID_PHONE));
+        assertEquals(expectedPhone, ParserUtil.parsePhone(VALID_PHONE).getValue());
     }
 
     @Test
     public void parsePhone_validValueWithWhitespace_returnsTrimmedPhone() throws Exception {
         String phoneWithWhitespace = WHITESPACE + VALID_PHONE + WHITESPACE;
         Phone expectedPhone = new Phone(VALID_PHONE);
-        assertEquals(expectedPhone, ParserUtil.parsePhone(phoneWithWhitespace));
+        assertEquals(expectedPhone, ParserUtil.parsePhone(phoneWithWhitespace).getValue());
     }
 
     @Test
@@ -138,14 +138,14 @@ public class ParserUtilTest {
     @Test
     public void parseEmail_validValueWithoutWhitespace_returnsEmail() throws Exception {
         Email expectedEmail = new Email(VALID_EMAIL);
-        assertEquals(expectedEmail, ParserUtil.parseEmail(VALID_EMAIL));
+        assertEquals(expectedEmail, ParserUtil.parseEmail(VALID_EMAIL).getValue());
     }
 
     @Test
     public void parseEmail_validValueWithWhitespace_returnsTrimmedEmail() throws Exception {
         String emailWithWhitespace = WHITESPACE + VALID_EMAIL + WHITESPACE;
         Email expectedEmail = new Email(VALID_EMAIL);
-        assertEquals(expectedEmail, ParserUtil.parseEmail(emailWithWhitespace));
+        assertEquals(expectedEmail, ParserUtil.parseEmail(emailWithWhitespace).getValue());
     }
 
     @Test

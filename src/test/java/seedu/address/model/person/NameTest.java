@@ -24,6 +24,9 @@ public class NameTest {
         // null name
         assertThrows(NullPointerException.class, () -> Name.isValidName(null));
 
+        assertFalse(Name.isValidName(""));
+        assertFalse(Name.isValidName(" "));
+
         // invalid name
         assertFalse(Name.isValidNameWarn("")); // empty string
         assertFalse(Name.isValidNameWarn(" ")); // spaces only
