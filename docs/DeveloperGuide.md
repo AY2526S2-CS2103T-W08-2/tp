@@ -281,30 +281,30 @@ Small business owners who:
 **Value proposition**:
 
 VendorVault helps small business owners seamlessly manage vendor contacts and track inventory in one simple system.
-By flagging and sorting low-stock items, owners instantly know what needs restocking and who to contact, enabling timely action without relying on complex or costly inventory tools.
+By flagging and sorting low-quantity products, owners instantly know what needs restocking and who to contact, enabling timely action without relying on complex or costly inventory tools.
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​      | I want to …​                | So that I can…​                                                    |
-|----------|-------------|----------------------------|-------------------------------------------------------------------|
-| `* *`    | new user    | see usage guide            | recap and learn commands                                          |
-| `* * *`  | user        | add a new contact          | add new vendors I work with                                       |
-| `* * *`  | user        | delete a contact           | remove vendors I no longer work with                              |
-| `* * *`  | user        | view contacts              |                                                                   |
-| `* *`    | user        | find a contact by name     | locate their details without having to go through the entire list |
-| `* *`    | user        | sort contacts by name      | browse them easily                                                |
-| `* *`    | user        | filter contact by category | view similar vendors                                              |
-| `* * *`  | user        | add a product              | add new products I sell                                           |
-| `* * *`  | user        | delete a product           | remove products I no longer sell                                  |
-| `* * *`  | user        | view products              |                                                                   |
-| `* *`    | user        | sort products by name      | browse them easily                                                |
-| `* *`    | user        | filter products by category| view similar products                                             |
-| `* *`    | user        | view inventory statistics  | understand my product stock levels                                |
-| `* *`    | expert user | add alias for commands     | create alias for long commands according to my preferences        |
-| `* *`    | expert user | delete alias for commands  | remove alias for I no longer want to use                          |
-| `* *`    | expert user | view aliases for commands  | view all aliases that I have set                                  |
+| Priority | As a …​     | I want to …​                | So that I can…​                                                   |
+|----------|-------------|-----------------------------|-------------------------------------------------------------------|
+| `* *`    | new user    | see usage guide             | recap and learn commands                                          |
+| `* * *`  | user        | add a new contact           | add new vendors I work with                                       |
+| `* * *`  | user        | delete a contact            | remove vendors I no longer work with                              |
+| `* * *`  | user        | view contacts               |                                                                   |
+| `* *`    | user        | find a contact by name      | locate their details without having to go through the entire list |
+| `* *`    | user        | sort contacts by name       | browse them easily                                                |
+| `* *`    | user        | filter contact by category  | view similar vendors                                              |
+| `* * *`  | user        | add a product               | add new products I sell                                           |
+| `* * *`  | user        | delete a product            | remove products I no longer sell                                  |
+| `* * *`  | user        | view products               |                                                                   |
+| `* *`    | user        | sort products by name       | browse them easily                                                |
+| `* *`    | user        | filter products by category | view similar products                                             |
+| `* *`    | user        | view inventory statistics   | understand my product quantity levels                             |
+| `* *`    | expert user | add alias for commands      | create alias for long commands according to my preferences        |
+| `* *`    | expert user | delete alias for commands   | remove alias for I no longer want to use                          |
+| `* *`    | expert user | view aliases for commands   | view all aliases that I have set                                  |
 
 ### Use cases
 
@@ -349,7 +349,7 @@ Use case ends.
 
   Use case ends.
 
-**Use Case: UC2 - View Vendor Contact**
+**Use Case: UC2 - View Vendor Contacts**
 
 **Preconditions: Application is running, user is on the main screen.**
 
@@ -387,18 +387,18 @@ Use case ends.
   
   Use case ends.
 
-**Use Case: UC4 - Add Stock Item**
+**Use Case: UC4 - Add Product**
 
 **Preconditions: Application is running, user is on the main screen.**
 
 **MSS**
 
-1. User chooses to add a Stock Item.
+1. User chooses to add a Product.
 2. VV validates that all compulsory fields are present.
 3. VV validates the format of the provided data.
 4. VV checks that the product does not already exist.
-5. VV creates the stock item.
-6. VV adds the stock item to the inventory.
+5. VV creates the product.
+6. VV adds the product to the inventory.
 7. VV saves the updated inventory to storage.
 8. VV displays a success message.
 
@@ -427,40 +427,40 @@ Use case ends.
   
   Use case ends.
 
-**Use Case: UC 5 - View Stock**
+**Use Case: UC 5 - View Products**
 
 **Preconditions: Application is running, user is on the main screen.**
 
 **MSS**
-1. User chooses to view stock count.
-2. VV shows the stock count for all stocks.
+1. User chooses to view products and their quantity.
+2. VV shows the quantity for all products.
 
 Use case ends.
 
 **Extensions**
 
-* 2a. VV detects there are no stocks found.
-  * 2a1. VV will create a new file with preloaded stocks information.
+* 2a. VV detects there are no products found.
+  * 2a1. VV will create a new file with preloaded product information.
 
   Use case resumes from step 2.
 
-**Use case: UC6 - Delete Stock**
+**Use case: UC6 - Delete Product**
 
-**Preconditions: Application is running, user is on the main screen and has added a stock.**
+**Preconditions: Application is running, user is on the main screen and has added a product.**
 
 **MSS**
 
-1. User chooses to delete a stock.
-2. VV requests for confirmation for deleting the stock.
+1. User chooses to delete a product.
+2. VV requests for confirmation for deleting the product.
 3. User confirms deletion.
-4. VV deletes stock and displays list of current stock.
+4. VV deletes product and displays list of current product.
 
 Use case ends.
 
 **Extensions**
 
-* 2a. User decides not to delete the stock, rejecting deletion.
-  * 2a1. VV displays a list of current stock.
+* 2a. User decides not to delete the product, rejecting deletion.
+  * 2a1. VV displays a list of current product.
   
   Use case ends.
 
@@ -478,7 +478,7 @@ Portability:
 1. The system shall run on Windows, Mac and Linux as long as it has Java `17` or above installed.
 
 Performance:
-1. The system shall respond to any valid command within 2 seconds when the total number of entries does not exceed expected usage limits (1,000 vendors and 5,000 stock items).
+1. The system shall respond to any valid command within 2 seconds when the total number of entries does not exceed expected usage limits (1,000 vendors contacts and 5,000 products).
 
 Persistence:
 1. The system must save app data locally as JSON and load it when launched.
@@ -490,7 +490,7 @@ Security:
 1. The system should store data locally on the user’s device and should not transmit data over any network.
 
 Scalability and Capacity:
-1. The system should handle at least 1,000 contacts and 5,000 items (more than that may not be supported).
+1. The system should handle at least 1,000 vendor contacts and 5,000 products (performance beyond these limits is not guaranteed).
 
 Maintainability:
 1. The system shall separate Logic, Model, Storage and UI components to support future expansion.
@@ -507,8 +507,8 @@ Accessibility:
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
 * **Contact/Vendor Contact**: A stored record containing a vendor’s name, phone number, email, address, and optional tags.
-* **Stock/Inventory Item/Product**: A product entry tracked by the system, identified by a unique product ID, name, and quantity.
-* **Product ID**: A non-negative integer that uniquely identifies a stock item in the inventory.
+* **Inventory Item/Product**: A product entry tracked by the system, identified by a unique product ID, name, and quantity.
+* **Product ID**: A non-negative integer that uniquely identifies a product in the inventory.
 * **Command**: A user input instruction entered into the CLI to perform an action (e.g. add, delete, list).
 * **Prefix**: A keyword used to identify parameters in a command (e.g. n/, p/, e/, q/).
 
