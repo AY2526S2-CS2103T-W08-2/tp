@@ -83,7 +83,7 @@ public class Product {
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .add("id", identifier)
+                .add("identifier", identifier)
                 .add("name", name)
                 .add("quantity", quantity)
                 .toString();

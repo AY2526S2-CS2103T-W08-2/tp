@@ -48,12 +48,11 @@ public class UniqueProductList implements Iterable<Product> {
         internalList.add(toAdd);
     }
 
-    /*
-    **
+    /**
      * Replaces the product {@code target} in the list with {@code editedProduct}.
      * {@code target} must exist in the list.
      * The product identity of {@code editedProduct} must not be the same as another existing product in the list.
-     *
+     */
     public void setProduct(Product target, Product editedProduct) {
         requireAllNonNull(target, editedProduct);
 
@@ -68,7 +67,6 @@ public class UniqueProductList implements Iterable<Product> {
 
         internalList.set(index, editedProduct);
     }
-    */
 
     /**
      * Removes the equivalent product from the list.
