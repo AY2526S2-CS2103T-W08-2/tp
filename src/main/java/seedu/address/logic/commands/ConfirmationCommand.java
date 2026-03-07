@@ -13,9 +13,16 @@ public class ConfirmationCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "confirmation";
 
+    private static final boolean needConfirmation = false;
+
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
         return new CommandResult(MESSAGE_SUCCESS);
+    }
+
+    @Override
+    public boolean needConfirmation() {
+        return needConfirmation;
     }
 }

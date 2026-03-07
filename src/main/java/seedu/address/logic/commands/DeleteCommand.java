@@ -33,6 +33,8 @@ public class DeleteCommand extends Command {
     public static final String CONFIRMATION_DELETE_PERSON_MESSAGE =
             "Confirm (y) you want to delete the following person shown below:";
 
+    private static final boolean needConfirmation = true;
+
     private final Index targetIndex;
 
     public DeleteCommand(Index targetIndex) {
@@ -57,8 +59,8 @@ public class DeleteCommand extends Command {
         }
 
         Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
-        NameEqualsKeywordsPredicate pred = new NameEqualsKeywordsPredicate(personToDelete);
-        model.updateFilteredPersonList(pred);
+        NameEqualsKeywordsPredicate predicate = new NameEqualsKeywordsPredicate(personToDelete);
+        model.updateFilteredPersonList(predicate);
         return new CommandResult(CONFIRMATION_DELETE_PERSON_MESSAGE);
 
         //        Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
@@ -83,6 +85,11 @@ public class DeleteCommand extends Command {
 
         DeleteCommand otherDeleteCommand = (DeleteCommand) other;
         return targetIndex.equals(otherDeleteCommand.targetIndex);
+    }
+
+    @Override
+    public boolean needConfirmation() {
+        return needConfirmation;
     }
 
     @Override

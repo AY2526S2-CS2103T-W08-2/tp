@@ -33,6 +33,7 @@ public class LogicManager implements Logic {
     private final Storage storage;
     private final AddressBookParser addressBookParser;
     private String previousCommand;
+    private boolean needConfirmation;
 
     /**
      * Constructs a {@code LogicManager} with the given {@code Model} and {@code Storage}.
@@ -42,6 +43,7 @@ public class LogicManager implements Logic {
         this.storage = storage;
         addressBookParser = new AddressBookParser();
         previousCommand = "";
+        needConfirmation = false;
     }
 
     @Override
@@ -49,9 +51,9 @@ public class LogicManager implements Logic {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;
-        Command command = addressBookParser.parseCommand(commandText);
+        Command command = addressBookParser.parseCommand(commandText, needConfirmation);
         commandResult = command.execute(model);
-
+        needConfirmation = command.needConfirmation();
         previousCommand = commandText;
 
         try {

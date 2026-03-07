@@ -14,8 +14,15 @@ public class HelpCommand extends Command {
 
     public static final String SHOWING_HELP_MESSAGE = "Opened help window.";
 
+    private static final boolean needConfirmation = false;
+
     @Override
     public CommandResult execute(Model model) {
         return new CommandResult(SHOWING_HELP_MESSAGE, true, false);
+    }
+
+    @Override
+    public boolean needConfirmation() {
+        return needConfirmation;
     }
 }

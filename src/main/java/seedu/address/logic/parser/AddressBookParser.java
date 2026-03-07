@@ -41,7 +41,7 @@ public class AddressBookParser {
      * @return the command based on the user input
      * @throws ParseException if the user input does not conform the expected format
      */
-    public Command parseCommand(String userInput) throws ParseException {
+    public Command parseCommand(String userInput, boolean needConfirmation) throws ParseException {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
@@ -54,6 +54,15 @@ public class AddressBookParser {
         // log messages such as the one below.
         // Lower level log messages are used sparingly to minimize noise in the code.
         logger.fine("Command word: " + commandWord + "; Arguments: " + arguments);
+
+        if (needConfirmation) {
+            switch (commandWord) {
+            case ConfirmationCommand.COMMAND_WORD:
+                return new ConfirmationCommand();
+            default:
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            }
+        }
 
         switch (commandWord) {
 
@@ -89,9 +98,6 @@ public class AddressBookParser {
 
         case RestoreCommand.COMMAND_WORD:
             return new RestoreCommandParser().parse(arguments);
-
-        case ConfirmationCommand.COMMAND_WORD:
-            return new ConfirmationCommand();
 
         default:
             logger.finer("This user input caused a ParseException: " + userInput);

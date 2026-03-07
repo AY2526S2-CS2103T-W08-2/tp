@@ -39,6 +39,8 @@ public class AddCommand extends Command {
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
 
+    private static final boolean needConfirmation = false;
+
     private final Person toAdd;
     private String warnings = "";
 
@@ -81,6 +83,11 @@ public class AddCommand extends Command {
                 String.format(MESSAGE_SUCCESS + formattedWarnings, Messages.format(toAdd)),
                 feedbackType);
 
+    }
+
+    @Override
+    public boolean needConfirmation() {
+        return needConfirmation;
     }
 
     /**

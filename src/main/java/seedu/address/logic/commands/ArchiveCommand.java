@@ -31,6 +31,8 @@ public class ArchiveCommand extends Command {
     public static final String MESSAGE_ARCHIVE_SUCCESS =
             "Archived Vendor: %1$s";
 
+    private static final boolean needConfirmation = false;
+
     private final Index targetIndex;
 
     /**
@@ -64,5 +66,10 @@ public class ArchiveCommand extends Command {
         model.archivePerson(vendorToArchive);
 
         return new CommandResult(String.format(MESSAGE_ARCHIVE_SUCCESS, vendorToArchive));
+    }
+
+    @Override
+    public boolean needConfirmation() {
+        return needConfirmation;
     }
 }

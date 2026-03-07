@@ -31,6 +31,8 @@ public class RestoreCommand extends Command {
     public static final String MESSAGE_RESTORE_SUCCESS =
             "Restored Vendor: %1$s";
 
+    private static final boolean needConfirmation = false;
+
     private final Index targetIndex;
 
     /**
@@ -67,5 +69,10 @@ public class RestoreCommand extends Command {
         model.restorePerson(vendorToRestore);
 
         return new CommandResult(String.format(MESSAGE_RESTORE_SUCCESS, vendorToRestore));
+    }
+
+    @Override
+    public boolean needConfirmation() {
+        return needConfirmation;
     }
 }
