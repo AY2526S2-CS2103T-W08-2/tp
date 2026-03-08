@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
+import seedu.address.model.product.Product;
 
 /**
  * The API of the Model component.
@@ -18,6 +19,9 @@ public interface Model {
      * {@code Predicate} that shows only active vendors (not archived).
      */
     Predicate<Person> PREDICATE_SHOW_ACTIVE_PERSONS = person -> !person.isArchived();
+
+    /** {@code Predicate} that always evaluate to true */
+    Predicate<Product> PREDICATE_SHOW_ALL_PRODUCTS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -111,7 +115,42 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
 
-    //=========== AddressBookVersioning ========================================================================
+    // =========== Product ==================================================================================
+    /**
+     * Returns true if a product with the same identity as {@code product} exists in the inventory.
+     */
+    boolean hasProduct(Product product);
+
+    /**
+     * Deletes the given product.
+     * The product must exist in the inventory.
+     */
+    void deleteProduct(Product target);
+
+    /**
+     * Adds the given product.
+     * {@code product} must not already exist in the inventory.
+     */
+    void addProduct(Product product);
+
+    /**
+     * Replaces the given product {@code target} with {@code editedProduct}.
+     * {@code target} must exist in the inventory.
+     * The product identity of {@code editedProduct} must not be the same as another existing product in the inventory.
+     */
+    void setProduct(Product target, Product editedProduct);
+
+    /** Returns an unmodifiable view of the filtered product list. */
+    ObservableList<Product> getFilteredProductList();
+
+    /**
+     * Updates the filter of the filtered product list to filter by the given {@code predicate}.
+     *
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredProductList(Predicate<Product> predicate);
+
+    // =========== AddressBookVersioning ========================================================================
     /**
      * Commits the current state of vendor vault. This should be called after any operation
      * that modifies vendor vault, such as adding, deleting, or editing a person (same as vendor).
