@@ -516,22 +516,22 @@ Use case ends.
 * 3a. VV detects error in provided data (e.g. missing compulsory fields, invalid data format).
   * 3a1. VV displays an appropriate error message indicating the invalid or missing field.
   * 3a2. User re-provides the corrected data.
- 
+  
   Steps 3a1–3a2 are repeated until all fields are valid.
- 
+  
   Use case resumes from step 4.
 
 * 4a. VV detects duplicate product.
   * 4a1. VV displays an error.
   * 4a2. User re-provides the corrected data.
- 
+  
   Steps 4a1–4a2 are repeated until a unique ID is provided.
- 
+  
   Use case resumes from step 5.
 
 * 7a. Storage file cannot be written or accessed.
   * 7a1. VV displays a failure message indicating inventory could not be saved.
- 
+  
   Use case ends.
 
 **Use Case: UC 5 - View Products**
@@ -568,7 +568,7 @@ Use case ends.
 
 * 2a. User decides not to delete the product, rejecting deletion.
   * 2a1. VV displays a list of current product.
- 
+  
   Use case ends.
 
 
