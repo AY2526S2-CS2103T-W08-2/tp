@@ -84,6 +84,11 @@ public class AddCommand extends Command {
 
     }
 
+    @Override
+    public PendingConfirmation getPendingConfirmation() {
+        return new PendingConfirmation();
+    }
+
     /**
      * Returns the warnings to show after successfully adding the person.
      *
