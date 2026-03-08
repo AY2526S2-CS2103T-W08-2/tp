@@ -20,6 +20,7 @@ public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final AddressBook addressBook;
+    private final Inventory inventory;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private final VersionedVendorVault versionedVendorVault;
@@ -34,6 +35,7 @@ public class ModelManager implements Model {
         logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
 
         this.addressBook = new AddressBook(addressBook);
+        this.inventory = new Inventory();
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
         filteredPersons.setPredicate(Model.PREDICATE_SHOW_ACTIVE_PERSONS);
@@ -89,6 +91,34 @@ public class ModelManager implements Model {
     @Override
     public ReadOnlyAddressBook getAddressBook() {
         return addressBook;
+    }
+
+    // =========== Inventory ==================================================================================
+    @Override
+    public void setInventory(ReadOnlyInventory inventory) {
+        this.inventory.resetData(inventory);
+    }
+
+    @Override
+    public ReadOnlyInventory getInventory() {
+        return inventory;
+    }
+
+    // =========== VendorVault ==================================================================================
+
+    @Override
+    public void setVendorVault(ReadOnlyVendorVault vendorVault) {
+        requireNonNull(vendorVault);
+        addressBook.resetData(vendorVault);
+        inventory.resetData(vendorVault);
+    }
+
+    @Override
+    public ReadOnlyVendorVault getVendorVault() {
+        VendorVault vendorVault = new VendorVault();
+        vendorVault.setAddressBook(addressBook);
+        vendorVault.setInventory(inventory);
+        return vendorVault;
     }
 
     @Override
@@ -181,6 +211,7 @@ public class ModelManager implements Model {
 
         ModelManager otherModelManager = (ModelManager) other;
         return addressBook.equals(otherModelManager.addressBook)
+                && inventory.equals(otherModelManager.inventory)
                 && userPrefs.equals(otherModelManager.userPrefs)
                 && filteredPersons.equals(otherModelManager.filteredPersons);
     }
