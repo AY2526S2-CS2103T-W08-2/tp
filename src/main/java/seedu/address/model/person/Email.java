@@ -12,6 +12,7 @@ public class Email {
     public static final String SOFT_VALIDATION_REGEX = "^.{0,256}$";
     public static final String MESSAGE_BLANK = "Email should not be blank.";
     public static final String MESSAGE_WARN = "⚠ Warning: This email address is unusually long, is this intentional?";
+    private static final int MAX_LENGTH = 320;
     private static final String SPECIAL_CHARACTERS = "+_.-";
     public static final String MESSAGE_CONSTRAINTS = "Emails should be of the format local-part@domain "
             + "and adhere to the following constraints:\n"
@@ -23,7 +24,8 @@ public class Email {
             + "The domain name must:\n"
             + "    - end with a domain label at least 2 characters long\n"
             + "    - have each domain label start and end with alphanumeric characters\n"
-            + "    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.";
+            + "    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.\n"
+            + "3. The entire email should be no more than " + MAX_LENGTH + " characters long.";
     // alphanumeric and special characters
     private static final String ALPHANUMERIC_NO_UNDERSCORE = "[^\\W_]+"; // alphanumeric characters except underscore
     private static final String LOCAL_PART_REGEX = "^" + ALPHANUMERIC_NO_UNDERSCORE + "([" + SPECIAL_CHARACTERS + "]"
@@ -51,6 +53,9 @@ public class Email {
      * Returns if a given string is a valid email.
      */
     public static boolean isValidEmail(String test) {
+        if (test.length() > MAX_LENGTH) {
+            return false;
+        }
         return test.matches(VALIDATION_REGEX);
     }
 

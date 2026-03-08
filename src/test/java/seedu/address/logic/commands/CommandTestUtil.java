@@ -56,11 +56,10 @@ public class CommandTestUtil {
 
     public static final String INVALID_NAME_WARN = "James-Doe";
     public static final String INVALID_PHONE_WARN = "1234 5678 (HP) 1111-3333 (Office)";
-    public static final String INVALID_EMAIL_WARN = "thisisaverylongemailaddressusedfortestingpurposesanditcontainsonly"
-            + "allowedcharactersanddoesnotstartorendwithaspecialcharacterbutmayincludeperiods."
-            + "and.more.sections.and.more.sections.and.more.sections.and.more.sections."
-            + "and.more.sections.and.more.sections.and.more.sections.and.more."
-            + "sections@example-very-long-domain-name-for-validation-testing-purposes-only123456789.com";
+    public static final String INVALID_EMAIL_WARN = "johndoe1234567890abcdefghijklmnopqrstuvwxyz."
+            + "johndoe1234567890abcdefghijklmnopqrstuvwxyz.johndoe1234567890abcdefghijklmnopqrstuvwxyz."
+            + "johndoe1234567890abcdefghijklmnopqrstuvwxyz.johndoe1234567890abcdefghijklmnopqrstuvwxyz"
+            + "@valid-domain-for-testing-1234567890abcdefghijklmnopqrstuvwxyz.com";
     public static final String INVALID_NAME_DESC_WARN = " " + PREFIX_NAME + INVALID_NAME_WARN; // with warning
     public static final String INVALID_PHONE_DESC_WARN = " " + PREFIX_PHONE + INVALID_PHONE_WARN; // with warning
     public static final String INVALID_EMAIL_DESC_WARN = " " + PREFIX_EMAIL + INVALID_EMAIL_WARN; // missing '@' symbol
