@@ -115,6 +115,7 @@
         "editing-a-contact-edit": "Editing a contact : edit",
         "locating-contacts-by-name-find": "Locating contacts by name: find",
         "deleting-a-contact-delete": "Deleting a contact : delete",
+        "adding-a-product-addproduct": "Adding a product: addproduct",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "undoing-the-previous-command-undo": "Undoing the previous command : undo",
         "exiting-the-program-exit": "Exiting the program : exit",
