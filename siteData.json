@@ -65,8 +65,14 @@
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-contact": "Deleting a contact",
+        "finding-a-contact": "Finding a contact",
+        "adding-a-product": "Adding a product",
+        "finding-a-product": "Finding a product",
+        "changing-default-threshold": "Changing default threshold",
         "saving-data": "Saving data",
         "appendix-effort": "Appendix: Effort",
+        "difficulty-and-amp-challenges": "Difficulty &amp; Challenges",
+        "effort-and-amp-achievements": "Effort &amp; Achievements",
         "appendix-planned-enhancements": "Appendix: Planned Enhancements"
       },
       "headingKeywords": {}
