@@ -172,14 +172,6 @@
         "project-vendorvault": "Project: VendorVault"
       },
       "headingKeywords": {}
-    },
-    {
-      "src": "team/shermaine.md",
-      "title": "Shermaine's Project Portfolio Page",
-      "headings": {
-        "project-addressbook-level-3": "Project: AddressBook Level 3"
-      },
-      "headingKeywords": {}
     }
   ]
 }
